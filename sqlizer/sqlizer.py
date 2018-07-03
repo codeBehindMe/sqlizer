@@ -1,5 +1,3 @@
-from enum import Enum
-
 from jinja2 import Template
 
 
@@ -48,7 +46,7 @@ class DMLConstructor:
         else:
             self.target_database_table_name = "{0}.{1}".format(self._target_database, self._target_table)
 
-        # endregion
+    # endregion
 
     # region public
 
@@ -103,8 +101,7 @@ class DMLConstructor:
         """
         self.__construct_database_table_name__()
         return self.insert_template.render(target_database_table_name=self.target_database_table_name,
-                                           target_columns=self.target_columns,
-                                           value_statement=self.value_statement)
+                                           target_columns=self.target_columns, value_statement=self.value_statement)
 
         # endregion
 
