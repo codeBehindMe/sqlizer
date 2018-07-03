@@ -87,8 +87,8 @@ class DMLConstructor:
 
             self.target_columns = "({0})".format(",".join(reversed(_t_cols)))
             # Appropriately convert the string values to be wrapped with single quotes.
-            self.value_statement = "VALUES({0})".format(",".join(
-                reversed([str(StringType(v)) if isinstance(v, str) else str(v) for v in _t_vals])))
+            self.value_statement = "VALUES({0})".format(
+                ",".join(reversed([str(StringType(v)) if isinstance(v, str) else str(v) for v in _t_vals])))
         if isinstance(values_to_insert, list):
             # Appropriately convert the string values to be wrapped with single quotes.
             self.value_statement = "VALUES({0})".format(
