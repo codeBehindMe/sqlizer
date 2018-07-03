@@ -38,18 +38,6 @@ class DMLConstructor:
         else:
             self.target_database_table_name = "{0}.{1}".format(self._target_database, self._target_table)
 
-    @staticmethod
-    def __compile_insert_as_values_value_statement__(values_to_insert):
-        """
-        This compiles the value_statement variable when insert as values method is used. This method correctly
-        parses the string type objects to be inside single quotes.
-        :return: None
-        """
-        [StringType(v) if isinstance(v, str) else v for v in values_to_insert.values()]
-        "VALUES ({0})".format(",".join(list(values_to_insert.values())))
-
-        return
-
         # endregion
 
     # region public
