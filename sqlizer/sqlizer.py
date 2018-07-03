@@ -111,4 +111,6 @@ if __name__ == '__main__':
         {"mycol1": 1, "mycol2": "2"}).get_sql())
     print(DMLConstructor(target_table="batch").insert_as_values(["myString", 2]).get_sql())
 
-    print(StringType("hello"))
+    print (DMLConstructor(target_table="mytable").insert_as_values([ExprType("current_timestamp at time zone "
+                                                                             "'Australia/Melbourne'"),
+                                                                    "mycol"]).get_sql())

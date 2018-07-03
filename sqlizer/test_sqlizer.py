@@ -4,10 +4,10 @@ from .sqlizer import DMLConstructor, ExprType
 class TestDMLConstructor:
 
     def test_string_valued_inputs(self):
-        target = """INSERT INTO database.table VALUES('string1','string2');"""
+        target = """INSERT INTO database.table VALUES('staging','gdw');"""
 
         generated = DMLConstructor(target_database='database', target_table='table').insert_as_values(
-            ["string1", "string2"]).get_sql()
+            ["staging", "gdw"]).get_sql()
 
         assert target == generated
 
