@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e65f6c9-9bc9-4165-9f56-2352ea2cf6ae" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/sequalizer/test_sqlizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sqlizer/test_sqlizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sequalizer/sqlizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/sequalizer/sqlizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sequalizer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/sqlizer/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sequalizer/sqlizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/sqlizer/sqlizer.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,10 +36,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="sqlizer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sequalizer/sqlizer.py">
+        <entry file="file://$PROJECT_DIR$/sqlizer/sqlizer.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="512">
-              <caret line="50" column="21" lean-forward="true" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+              <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -46,10 +48,10 @@
         </entry>
       </file>
       <file leaf-file-name="test_sqlizer.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sequalizer/test_sqlizer.py">
+        <entry file="file://$PROJECT_DIR$/sqlizer/test_sqlizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+            <state relative-caret-position="144">
+              <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -106,7 +108,7 @@
             <path>
               <item name="bcf_acc" type="b2602c69:ProjectViewProjectNode" />
               <item name="bcf_acc" type="462c0819:PsiDirectoryNode" />
-              <item name="sequalizer" type="462c0819:PsiDirectoryNode" />
+              <item name="sqlizer" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -199,17 +201,22 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="UnitTests - 2018.07.03 at 14h 32m 23s.xml">
+      <configuration name="UnitTests" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.32932165" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.32932165" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="right" id="Python Console" order="5" weight="0.32885087" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.32932165" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.32932165" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32932165" />
@@ -242,20 +249,20 @@
     <entry file="file://$PROJECT_DIR$/unit_test/test_sqlizer.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/sequalizer/sqlizer.py">
+    <entry file="file://$PROJECT_DIR$/sqlizer/sqlizer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="512">
-          <caret line="50" column="21" lean-forward="true" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+          <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sequalizer/test_sqlizer.py">
+    <entry file="file://$PROJECT_DIR$/sqlizer/test_sqlizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        <state relative-caret-position="144">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
         </state>
       </provider>
     </entry>
