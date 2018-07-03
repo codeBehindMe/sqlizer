@@ -4,7 +4,7 @@ from .sqlizer import DMLConstructor, ExprType
 class TestDMLConstructor:
 
     def test_string_valued_inputs(self):
-        target = """INSERT INTO database.table  VALUES('string1','string2');"""
+        target = """INSERT INTO database.table VALUES('string1','string2');"""
 
         generated = DMLConstructor(target_database='database', target_table='table').insert_as_values(
             ["string1", "string2"]).get_sql()
@@ -20,7 +20,7 @@ class TestDMLConstructor:
         assert target == generated
 
     def test_expression_inputs(self):
-        target = """INSERT INTO database.table  VALUES(table.myExpression(),'string2');"""
+        target = """INSERT INTO database.table VALUES(table.myExpression(),'string2');"""
 
         generated = DMLConstructor(target_database='database', target_table='table').insert_as_values(
             [ExprType("table.myExpression()"), 'string2']).get_sql()

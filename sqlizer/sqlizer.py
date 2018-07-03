@@ -26,7 +26,6 @@ class ExprType:
 
 
 class DMLConstructor:
-    SourceType = Enum("SourceType", ["TABLE", "FILE", "VALUE"])
 
     def __init__(self, **kwargs):
         """
@@ -37,10 +36,10 @@ class DMLConstructor:
         self._target_database = kwargs.get("target_database", None)  # Target database object.
 
         self.target_database_table_name = None  # Container for constructing the fully qualified target table name.
-        self.target_columns = []  # Container for target columns string.
+        self.target_columns = None  # Container for target columns string.
         self.value_statement = None  # Container for the value statement to carry out the DML.
         self.insert_template = Template(
-            """INSERT INTO {{target_database_table_name}} {{target_columns or NONE}} {{value_statement}};""")
+            """INSERT INTO {{target_database_table_name}}{{target_columns or NONE}} {{value_statement}};""")
 
     # region private
     def __construct_database_table_name__(self):
@@ -85,10 +84,11 @@ class DMLConstructor:
                 _t_cols.append(k)
                 _t_vals.append(v)
 
-            self.target_columns = "({0})".format(",".join(reversed(_t_cols)))
+            self.target_columns = "({0})".format(",".join(_t_cols))
+            self.target_columns = " " + self.target_columns
             # Appropriately convert the string values to be wrapped with single quotes.
             self.value_statement = "VALUES({0})".format(
-                ",".join(reversed([str(StringType(v)) if isinstance(v, str) else str(v) for v in _t_vals])))
+                ",".join([str(StringType(v)) if isinstance(v, str) else str(v) for v in _t_vals]))
         if isinstance(values_to_insert, list):
             # Appropriately convert the string values to be wrapped with single quotes.
             self.value_statement = "VALUES({0})".format(
@@ -103,7 +103,8 @@ class DMLConstructor:
         """
         self.__construct_database_table_name__()
         return self.insert_template.render(target_database_table_name=self.target_database_table_name,
-                                           target_columns=self.target_columns, value_statement=self.value_statement)
+                                           target_columns=self.target_columns,
+                                           value_statement=self.value_statement)
 
         # endregion
 
