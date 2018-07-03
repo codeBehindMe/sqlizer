@@ -14,6 +14,17 @@ class StringType:
         return """'{0}'""".format(self.val)
 
 
+class ExprType:
+    def __init__(self, value):
+        self.value = value
+
+    def __repr__(self):
+        return str(self.value)
+
+    def __str__(self):
+        return str(self.value)
+
+
 class DMLConstructor:
     SourceType = Enum("SourceType", ["TABLE", "FILE", "VALUE"])
 
@@ -29,7 +40,7 @@ class DMLConstructor:
         self.target_columns = []  # Container for target columns string.
         self.value_statement = None  # Container for the value statement to carry out the DML.
         self.insert_template = Template(
-            """INSERT INTO {{target_database_table_name}} {{target_columns}} {{value_statement}};""")
+            """INSERT INTO {{target_database_table_name}} {{target_columns or NONE}} {{value_statement}};""")
 
     # region private
     def __construct_database_table_name__(self):
@@ -67,15 +78,22 @@ class DMLConstructor:
         :return: Self
         """
         if isinstance(values_to_insert, dict):
-            self.target_columns = "({0})".format(",".join(list(values_to_insert.keys())))
+            _t_cols = []
+            _t_vals = []
+
+            for k, v in values_to_insert.items():
+                _t_cols.append(k)
+                _t_vals.append(v)
+
+            self.target_columns = "({0})".format(",".join(reversed(_t_cols)))
             # Appropriately convert the string values to be wrapped with single quotes.
-            self.value_statement = "VALUES ({0})".format(
-                ",".join([str(StringType(v)) if isinstance(v, str) else str(v) for v in values_to_insert.values()]))
+            self.value_statement = "VALUES({0})".format(",".join(
+                reversed([str(StringType(v)) if isinstance(v, str) else str(v) for v in _t_vals])))
         if isinstance(values_to_insert, list):
             # Appropriately convert the string values to be wrapped with single quotes.
-            self.value_statement = "VALUES ({0})".format(
+            self.value_statement = "VALUES({0})".format(
                 ",".join([str(StringType(v)) if isinstance(v, str) else str(v) for v in values_to_insert]))
-            self.target_columns = ""  # Blank because not specified.
+            self.target_columns = None  # Blank because not specified.
         return self
 
     def get_sql(self):
